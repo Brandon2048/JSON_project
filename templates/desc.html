@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+
+{% set active_page = "About"%}
+
+{% block title %}CORGIS Data set{% endblock %}
+
+{% block content %}
+<form action='/'>
+  <div id=content>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1 class="mt-5">Skyscrapers</h1>
+          <p class="lead">A research project</p>
+        </div>
+      </div>
+    </div>
+    <div class="research">
+      <p>The Skyscrapers CORGIS data set was collected by The Skyscraper Center and can be found <a href="https://corgis-edu.github.io/corgis/json/skyscrapers/">here</a>. The data consists of statistics on building heights around the world, materials
+        used, purposes, locations, and length of completion. The data from the Skyscraper Center is collected and maintaned by The Council on Tall Buildings and Urban Habitat. They collect data around the world using metrics, typologies, history,
+        demographics and other criteria. The json file data was collected in 2016 so it does not include many iconic buildings such as the Burj Khalifa or the Makkah Royal Clock Tower. </p>
+      <p> Location is a type of data that was collected which has many other subparts to it. It includes each skyscrapers unique ID, as well as its city and country ID. It also includes the name of the city and country, and also the langitude and
+        longitude values of the building. The data also includes certain buildings construction process with the values under construction and completed. It also includes the value "vision" which means that the building has only been proposed and its
+        values for year completed and year started are set to 0. The building will still include all other data such as height as if it was completed.</p>
+    </div>
+  </div>
+</form>
+{% endblock %}
