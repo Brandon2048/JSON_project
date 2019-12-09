@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+
+{% set active_page = "Data"%}
+
+{% block title %}CORGIS Data set{% endblock %}
+
+{% block content %}
+
+    <form action="/p1">
+      <select name="buildings">
+        {{buildings}}
+      </select>
+      <br><br>
+      <input type="submit">
+    </form>
+
+</form>
+
+
+{% endblock %}

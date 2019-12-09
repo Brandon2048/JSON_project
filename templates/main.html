@@ -19,7 +19,7 @@
 <body id="bootstrap-overrides" {% if active_page == "Political Demographic Intro" %} id="a" {% endif %} {% if active_page == "gal_lit" %} id="b" {% endif %} {% if active_page == "atm_torr" %} id="c" {% endif %}>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger static-top">
     <div class="container">
       <a class="navbar-brand" href="#">CORGIS Data Set</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,16 +27,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
+          <li {% if active_page == "About" %} class="active" {% endif %}>
+            <a class="nav-link" href="/">About</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Info</a>
+          <li {% if active_page == "Data" %} class="active" {% endif %}>
+            <a class="nav-link" href="/p1">Data by Skyscraper</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Height Comparison</a>
