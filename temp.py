@@ -16,7 +16,8 @@ def render_data():
         skyscraperdata = json.load(skyscraper_data)
     if 'buildings' in request.args:
         return render_template('data.html', buildings = get_building_options(skyscraperdata))
-
+    else:
+        return render_template('data.html', buildings = get_building_options(skyscraperdata))
 
 def get_building_options(skyscraperdata):
     buildings = []
