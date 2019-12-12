@@ -5,7 +5,7 @@
 {% block title %}CORGIS Data set{% endblock %}
 
 {% block content %}
-
+<h2> Choose a skyscraper to learn about it </h2>
     <form action="/p1">
       <select name="buildings">
         {{buildings}}
@@ -13,8 +13,8 @@
       <br><br>
       <input type="submit">
     </form>
-
-</form>
-
+    <p> Height: {{height1}} m</p>
+    <p> Number of floors: {{floors1}}</p>
+    <p> Material(s): {{material1}}</p>
 
 {% endblock %}
