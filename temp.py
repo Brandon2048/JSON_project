@@ -96,7 +96,7 @@ def get_points(skyscraperdata):
         points[name] = data["statistics"]["height"]
     format = "["
     for name, height in points.items():
-        format = format + Markup("{ x: '" + str(name) + "', y: " + str(height) + " },")
+        format = format + Markup("{ label: " + str(name) + ", y: " + str(height) + " },")
     format = format[:-1]
     format = format + "]"
     return format
