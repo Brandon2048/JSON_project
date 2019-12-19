@@ -1,13 +1,22 @@
-.research{
-font-family: arial;
-line-height: 35px;
-max-width: 75%;
-margin-top: 10px;
-display: block;
-margin-left: auto;
-margin-right: auto;
+.research {
+  font-family: arial;
+  line-height: 35px;
+  max-width: 75%;
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.data{
+  margin-left: 15px;
+}
+nav {
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
 }
 
-nav{
-	box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
+#chicago {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+	width: 100%;
 }

@@ -5,16 +5,20 @@
 {% block title %}CORGIS Data set{% endblock %}
 
 {% block content %}
-<h2> Choose a skyscraper to learn about it </h2>
-    <form action="/p1">
-      <select name="buildings">
-        {{buildings}}
-      </select>
-      <br><br>
-      <input type="submit">
-    </form>
-    <p> Height: {{height1}} m</p>
-    <p> Number of floors: {{floors1}}</p>
-    <p> Material(s): {{material1}}</p>
-
+<div class="data">
+  <h2> Choose a skyscraper to learn about it </h2>
+  <form action="/p1">
+    <select name="buildings">
+      {{buildings}}
+    </select>
+    <br><br>
+    <input type="submit">
+  </form>
+  <h1> {{n}}</h1>
+  <p> Status: {{status1}} </p>
+  <p> Location: {{location1}}</p>
+  <p> Height: {{height1}} m</p>
+  <p> Number of floors: {{floors1}}</p>
+  <p> Material(s): {{material1}}</p>
+</div>
 {% endblock %}

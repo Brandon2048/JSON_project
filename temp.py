@@ -18,7 +18,10 @@ def render_data():
         return render_template('data.html', buildings = get_building_options(skyscraperdata),
          height1 = height(request.args['buildings'], skyscraperdata),
          floors1 = floors(request.args['buildings'], skyscraperdata),
-         material1 = material(request.args['buildings'], skyscraperdata))
+         material1 = material(request.args['buildings'], skyscraperdata),
+         status1 = status(request.args['buildings'], skyscraperdata),
+         location1 = location(request.args['buildings'], skyscraperdata),
+         n = get_name(request.args['buildings'], skyscraperdata))
     else:
         return render_template('data.html', buildings = get_building_options(skyscraperdata))
 
@@ -33,13 +36,27 @@ def get_building_options(skyscraperdata):
         options = options + Markup("<option value=\"" + data + "\">" + data + "</option>")
     return options
 
+def status(buildings,skyscraperdata):
+    status = ""
+    for data in skyscraperdata:
+        if data["name"] == buildings:
+            status= data["status"]["current"]
+    return status
+
+def location(buildings,skyscraperdata):
+    location = ""
+    for data in skyscraperdata:
+        if data["name"] == buildings:
+            location = data["location"]["city"]
+    return location
+
 def height(buildings, skyscraperdata):
     height = 0
     for data in skyscraperdata:
         if data["name"] == buildings:
             height = height + data["statistics"]["height"]
 
-    return height
+    return round(height,2)
 
 def floors(buildings, skyscraperdata):
     floors = 0
@@ -55,6 +72,34 @@ def material(buildings, skyscraperdata):
         if data["name"] == buildings:
             material = data["material"]
     return material
+
+def get_name(buildings,skyscraperdata):
+    name = ""
+    for data in skyscraperdata:
+        if data["name"] == buildings:
+            name = data["name"]
+    return name
+
+@app.route("/p2")
+def render_graph():
+    with open('skyscrapers.json') as skyscraper_data:
+        skyscraperdata = json.load(skyscraper_data)
+    return render_template('graph.html', points = get_points(skyscraperdata))
+
+def get_points(skyscraperdata):
+    points = {}
+    for data in skyscraperdata:
+        name = data["name"]
+    if name in points:
+        points[name] = points[name] + data["statistics"]["height"]
+    else:
+        points[name] = data["statistics"]["height"]
+    format = "["
+    for name, height in points.items():
+        format = format + Markup("{ x: '" + str(name) + "', y: " + str(height) + " },")
+    format = format[:-1]
+    format = format + "]"
+    return format
 
 if __name__=="__main__":
     app.run(debug=True)

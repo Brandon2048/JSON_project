@@ -14,14 +14,16 @@
   <link href="{{url_for('static', filename='min.css')}}" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
+
+
 </head>
 
 <body id="bootstrap-overrides" {% if active_page == "Political Demographic Intro" %} id="a" {% endif %} {% if active_page == "gal_lit" %} id="b" {% endif %} {% if active_page == "atm_torr" %} id="c" {% endif %}>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-danger static-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-      <a class="navbar-brand" href="#">CORGIS Data Set</a>
+      <a class="navbar-brand" href="#">Skyscrapers Data</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -33,8 +35,8 @@
           <li {% if active_page == "Data" %} class="active" {% endif %}>
             <a class="nav-link" href="/p1">Data by Skyscraper</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Height Comparison</a>
+          <li {% if active_page == "Graph" %} class="active" {% endif %}>
+            <a class="nav-link" href="/p2">Height Comparison</a>
           </li>
         </ul>
       </div>
@@ -45,10 +47,13 @@
   {%  block content %}{% endblock %}
 
 
+
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.slim.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+  <div id="chartContainer" style="height: 360px; width: 100%;"></div>
+  <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 
 </html>
