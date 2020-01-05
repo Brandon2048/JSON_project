@@ -88,18 +88,16 @@ def render_graph():
 
 def get_points(skyscraperdata):
     points = {}
+    options = ""
     for data in skyscraperdata:
         name = data["name"]
     if name in points:
         points[name] = points[name] + data["statistics"]["height"]
     else:
         points[name] = data["statistics"]["height"]
-    format = "["
     for name, height in points.items():
-        format = format + Markup("{ label: " + str(name) + ", y: " + str(height) + " },")
-    format = format[:-1]
-    format = format + "]"
-    return format
+        options = options + Markup('{ label: ' + '"' + str(name) + '"' ', y: ' + str(height) + ' },')
+    return options
 
 if __name__=="__main__":
     app.run(debug=True)
