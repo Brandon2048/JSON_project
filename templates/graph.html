@@ -7,14 +7,13 @@
 {% block content %}
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 <script>
-<<<<<<< HEAD
 window.onload = function () {
 var chart = new CanvasJS.Chart("chartContainer", {
 	theme: "dark",
 	animationEnabled: true,
 	title:{
 		color:"rgb(120, 10, 50)",
-		text:"Tallest US Skyscrapers"
+		text:"Heights"
 	},
 	axisX:{
 		interval: 1
@@ -35,37 +34,5 @@ var chart = new CanvasJS.Chart("chartContainer", {
 });
 chart.render();
 }
-=======
-	window.onload = function () {
-
-	var chart = new CanvasJS.Chart("chartContainer", {
-		animationEnabled: true,
-
-		title:{
-			text:"Tallest Buildings in the US"
-		},
-		axisX:{
-			interval: 1
-		},
-		axisY2:{
-			interlacedColor: "rgba(1,77,101,.2)",
-			gridColor: "rgba(1,77,101,.1)",
-			title: "Height (m)"
-		},
-		data: [{
-			type: "bar",
-			name: "companies",
-			axisYType: "secondary",
-			color: "#014D65",
-			dataPoints: [
-			{{points}}
-
-			]
-		}]
-	});
-	chart.render();
-
-	}
->>>>>>> d9158e30012f4d3711bd66aa78e4670bbf11219b
 </script>
 {% endblock %}
